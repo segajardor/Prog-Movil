@@ -13,8 +13,7 @@ export class LoginPage implements OnInit {
   password: string='';
 
   constructor(private router: Router,
-              private alertController: AlertController
-  ) { }
+              private alertController: AlertController) { }
 
   ngOnInit() {
   }
