@@ -18,7 +18,7 @@ export class LoginPage implements OnInit {
 
   onLogin() {
     if (this.username === 'seba' && this.password === '123456') {
-      this.router.navigate(['/home']);
+      this.router.navigate(['/tabs']);
     } else {
       alert('Credenciales incorrectas')
     }
