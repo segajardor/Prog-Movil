@@ -15,7 +15,7 @@ export class LoginPage implements OnInit {
   lastname: string='Gajardo';
   email: string='se.gajardor@duocuc.cl';
   country: string='Chile';
-  address: string='QWuilpué';
+  address: string='Quilpué';
 
   constructor(private router: Router,
               private alertController: AlertController) { }
