@@ -11,6 +11,11 @@ export class LoginPage implements OnInit {
 
   username: string='';
   password: string='';
+  name: string='Sebastián';
+  lastname: string='Gajardo';
+  email: string='se.gajardor@duocuc.cl';
+  country: string='Chile';
+  address: string='QWuilpué';
 
   constructor(private router: Router,
               private alertController: AlertController) { }
@@ -23,7 +28,11 @@ export class LoginPage implements OnInit {
       let NavigationExtras: NavigationExtras = {
         state: {
           usernameEnviado: this.username,
-          passwordEnviada: this.password
+          nameEnviado: this.name,
+          lastnameEnviado: this.lastname,
+          emailEnviado: this.email,
+          countryEnviado: this.country,
+          addressEnviado: this.address
         }
       }
       this.router.navigate(['/tabs'], NavigationExtras);
