@@ -13,8 +13,4 @@ export class TabsPage implements OnInit {
   ngOnInit() {
   }
 
-  verPerfil() {
-    this.router.navigate(['/profile']);
-  }
-
 }
