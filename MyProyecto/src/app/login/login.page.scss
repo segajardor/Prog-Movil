@@ -2,16 +2,9 @@
 
 ion-toolbar {
   --background: var(--ion-color-petshop);
-  --color: black;
+  --color: var(--ion-color-secondary);
   --border-color: transparent;
   text-align: center;
-}
-
-ion-toolbar,
-ion-title {
-  font-family: 'Arial', sans-serif;
-  font-size: 23px;
-  color: var(--ion-color-secondary)
 }
 
 ion-card,

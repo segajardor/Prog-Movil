@@ -1,3 +1,23 @@
+@import '../../theme/variables.scss';
+
 ion-title {
     text-align: center;
-  }
+}
+
+ion-tabs {
+  background-image: url('../../assets/images/fondo.jpg'); /* Utiliza el mismo fondo que en la página de inicio de sesión */
+  background-size: cover;
+  background-position: center;
+}
+
+ion-tab-bar {
+  background-color: var(--ion-color-petshop); /* Utiliza el mismo color de fondo que en la página de inicio de sesión */
+}
+
+ion-tab-button {
+  color: white; /* Utiliza el mismo color de texto que en la página de inicio de sesión */
+}
+
+ion-tab-button:hover {
+  background-color: var(--ion-color-secondary); /* Cambia el color de fondo al pasar el cursor por encima para mantener la coherencia visual */
+}
