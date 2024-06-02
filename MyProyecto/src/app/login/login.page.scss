@@ -1,4 +1,7 @@
-ion-title {
+@import '../../theme/variables.scss';
+
+ion-toolbar {
+  background-color: var(--ion-color-petshop);
   text-align: center;
 }
 
