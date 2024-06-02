@@ -5,35 +5,29 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Login</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <ion-grid class="login-grid">
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="12" size-md="6">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-title>Bienvenido</ion-card-title>
+            <ion-card-subtitle>Por favor ingrese sus credenciales</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <form (ngSubmit)="onLogin()">
+              <ion-item>
+                <ion-label position="floating">Username</ion-label>
+                <ion-input [(ngModel)]="username" name="username" required></ion-input>
+              </ion-item>
+              <ion-item>
+                <ion-label position="floating">Password</ion-label>
+                <ion-input [(ngModel)]="password" type="password" name="password" required></ion-input>
+              </ion-item>
+              <ion-button expand="full" type="submit">Login</ion-button>
+            </form>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>
-
-<ion-grid>
-  <ion-row class="ion-justify-content-center">
-    <ion-col size="12" size-md="6">
-      <ion-card>
-        <ion-card-header>
-          <ion-card-title>Bienvenido</ion-card-title>
-          <ion-card-subtitle>Por favor ingrese sus credenciales</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <form (ngSubmit)="onLogin()">
-            <ion-item>
-              <ion-label position="floating">Username</ion-label>
-              <ion-input [(ngModel)]="username" name="username" required></ion-input>
-            </ion-item>
-            <ion-item>
-              <ion-label position="floating">Password</ion-label>
-              <ion-input [(ngModel)]="password" type="password" name="password" required></ion-input>
-            </ion-item>
-            <ion-button expand="full" type="submit">Login</ion-button>
-          </form>
-        </ion-card-content>
-      </ion-card>
-    </ion-col>
-  </ion-row>
-</ion-grid>
