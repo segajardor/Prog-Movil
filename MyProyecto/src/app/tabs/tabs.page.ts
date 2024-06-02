@@ -13,4 +13,7 @@ export class TabsPage implements OnInit {
   ngOnInit() {
   }
 
+  logout() {
+    this.router.navigate(['/login']);
+  }
 }
