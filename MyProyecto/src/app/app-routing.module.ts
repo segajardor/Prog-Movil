@@ -11,10 +11,10 @@ const routes: Routes = [
     path: 'login',
     loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
   },
-  {
+  /*{
     path: 'home',
     loadChildren: () => import('./home/home.module').then( m => m.HomePageModule)
-  },
+  },*/
   {
     path: 'tabs',
     loadChildren: () => import('./tabs/tabs.module').then( m => m.TabsPageModule)
@@ -22,10 +22,6 @@ const routes: Routes = [
     /*{
     path: 'profile',
     loadChildren: () => import('./profile/profile.module').then( m => m.ProfilePageModule)
-  },
-  {
-    path: 'homepage',
-    loadChildren: () => import('./homepage/homepage.module').then( m => m.HomepagePageModule)
   },*/
 ];
 
