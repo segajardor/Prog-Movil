@@ -17,11 +17,6 @@ ion-tab-button {
   --color: var(--ion-color-secondary-shade);
 }
 
-ion-tab-button[aria-selected="true"] {
-    border-radius: 0; /* Elimina el borde redondeado */
-    border: none; /* Elimina cualquier borde */
-  }
-  
 ion-icon {
   --color: var(--ion-color-secondary-shade);
 }
