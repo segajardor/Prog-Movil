@@ -1,3 +1,13 @@
+@import '../../theme/variables.scss';
+
 ion-card-title {
     text-align: center;
+}
+
+ion-content {
+    --background: url('../../assets/images/fondo2.jpg') no-repeat center center / cover;
+}
+  
+ion-card {
+    background-color: transparent;
 }
