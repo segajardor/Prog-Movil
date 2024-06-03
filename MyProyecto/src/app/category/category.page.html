@@ -1,42 +1,45 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>category</ion-title>
+    <ion-title>Categorías</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">category</ion-title>
+      <ion-title size="large">Categorías</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-card>
-    <ion-card-content class="ion-align-items-center">
-      <ion-icon name="paw" slot="start"></ion-icon>
-      COMIDA PARA PERROS
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-content class="ion-align-items-center">
-      <ion-icon name="paw" slot="start"></ion-icon>
-      COMIDA PARA GATOS
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-content class="ion-align-items-center">
-      <ion-icon name="sparkles" slot="start"></ion-icon>
-      JUGUETES
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-content class="ion-align-items-center">
-      <ion-icon name="bag" slot="start"></ion-icon>
-      ACCESORIOS
-    </ion-card-content>
-  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col sizeLg="4" sizeMed="4" sizeXs="6">
+        <div class="category-item">
+          <ion-icon name="paw"></ion-icon>
+          <div class="texto">COMIDA PARA PERROS</div>
+        </div>
+      </ion-col>
+      <ion-col sizeLg="4" sizeMed="4" sizeXs="6">
+        <div class="category-item">
+          <ion-icon name="paw"></ion-icon>
+          <div class="texto">COMIDA PARA GATOS</div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col sizeLg="4" sizeMed="4" sizeXs="6">
+        <div class="category-item">
+          <ion-icon name="sparkles"></ion-icon>
+          <div class="texto">JUGUETES</div>
+        </div>
+      </ion-col>
+      <ion-col sizeLg="4" sizeMed="4" sizeXs="6">
+        <div class="category-item">
+          <ion-icon name="basket"></ion-icon>
+          <div class="texto">ACCESORIOS</div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 
 </ion-content>

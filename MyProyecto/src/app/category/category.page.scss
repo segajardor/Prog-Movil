@@ -4,12 +4,27 @@ ion-content {
   --background: url('../../assets/images/fondo2.jpg') no-repeat center center / cover;
 }
 
-ion-card {
-  --background: var(--ion-color-petshop);
-  --border-color: transparent;
+.category-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  background-color: var(--ion-color-petshop);
+  border-radius: 10px;
+  margin: 10px;
+  color: var(--ion-color-secondary);
 }
 
-ion-card-content {
-  text-align: center;
+.category-item ion-icon {
+  font-size: 25px;
+  margin-bottom: 10px;
+  color: var(--ion-color-secondary);
+}
+
+.category-item .texto {
+  font-size: 18px;
+  font-weight: bold;
   color: var(--ion-color-secondary);
 }
