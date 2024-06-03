@@ -35,7 +35,7 @@ export class LoginPage implements OnInit {
           addressEnviado: this.address
         }
       }
-      this.router.navigate(['/tabs'], NavigationExtras);
+      this.router.navigate(['/tabs/profile'], NavigationExtras);
     } else {
       this.presentAlert('Credenciales incorrectas')
     }
