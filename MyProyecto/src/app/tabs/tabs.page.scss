@@ -1,13 +1,27 @@
 @import '../../theme/variables.scss';
 
 ion-toolbar {
-    --background: var(--ion-color-petshop);
-    --color: var(--ion-color-secondary-shade);
-    --border-color: transparent;
-    text-align: center;
+  --background: var(--ion-color-petshop);
+  --color: var(--ion-color-secondary-shade);
+  --border-color: transparent;
+  text-align: center;
 }
 
 ion-title {
-    margin-left: auto;
-    margin-right: -2.2em;
+  margin-left: auto;
+  margin-right: -2.2em;
+}
+
+ion-tab-button {
+  background: var(--ion-color-petshop);
+  --color: var(--ion-color-secondary-shade);
+}
+
+ion-tab-button[aria-selected="true"] {
+    border-radius: 0; /* Elimina el borde redondeado */
+    border: none; /* Elimina cualquier borde */
+  }
+  
+ion-icon {
+  --color: var(--ion-color-secondary-shade);
 }
