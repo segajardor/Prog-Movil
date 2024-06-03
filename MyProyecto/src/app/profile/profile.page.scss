@@ -1,13 +1,18 @@
 @import '../../theme/variables.scss';
 
-ion-card-title {
-    text-align: center;
-}
-
 ion-content {
-    --background: url('../../assets/images/fondo2.jpg') no-repeat center center / cover;
+  --background: url('../../assets/images/fondo2.jpg') no-repeat center center / cover;
 }
   
 ion-card {
-    background-color: transparent;
+  background-color: transparent;
+}
+
+ion-card-title {
+  color: var(--ion-color-secondary-shade);
+  text-align: center;
+}
+
+ion-card-content {
+  color: var(--ion-color-secondary);
 }
