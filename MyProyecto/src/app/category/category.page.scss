@@ -1,0 +1,15 @@
+@import '../../theme/variables.scss';
+
+ion-content {
+  --background: url('../../assets/images/fondo2.jpg') no-repeat center center / cover;
+}
+
+ion-card {
+  --background: var(--ion-color-petshop);
+  --border-color: transparent;
+}
+
+ion-card-content {
+  text-align: center;
+  color: var(--ion-color-secondary);
+}
