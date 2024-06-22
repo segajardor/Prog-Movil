@@ -5,22 +5,36 @@ ion-content {
 }
 
 ion-card {
-  --background: var(--ion-color-light);
+  --background: var(--ion-color-petshop);
+  --border-radius: 10px;
   margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 ion-card-title {
-  font-size: 1.2em;
+  font-size: 1.4em;
   font-weight: bold;
   text-align: center;
+  color: var(--ion-color-secondary);
 }
 
 ion-card-content {
   text-align: center;
+  color: var(--ion-color-secondary-shade);
 }
 
 img {
   width: 100%;
   height: auto;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 2px solid var(--ion-color-secondary);
+  border-radius: 10px 10px 0 0;
+}
+
+ion-card-header {
+  background: var(--ion-color-petshop-light);
+  border-radius: 10px 10px 0 0;
+}
+
+p {
+  margin: 5px 0;
 }
