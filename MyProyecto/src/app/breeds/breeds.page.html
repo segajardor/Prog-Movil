@@ -1,13 +1,32 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>breeds</ion-title>
+    <ion-title>Razas de Perros</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">breeds</ion-title>
+      <ion-title size="large">Razas de Perros</ion-title>
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col size="12" size-md="6" size-lg="4" *ngFor="let breed of breedsData">
+        <ion-card>
+          <img [src]="breed.image?.url" *ngIf="breed.image?.url" alt="{{ breed.name }}">
+          <ion-card-header>
+            <ion-card-title>{{ breed.name }}</ion-card-title>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ breed.temperament }}</p>
+            <p>{{ breed.origin }}</p>
+            <p>Peso: {{ breed.weight?.metric }} kg</p>
+            <p>Altura: {{ breed.height?.metric }} cm</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

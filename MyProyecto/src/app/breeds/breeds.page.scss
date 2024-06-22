@@ -3,3 +3,24 @@
 ion-content {
   --background: url('../../assets/images/fondo2.jpg') no-repeat center center / cover;
 }
+
+ion-card {
+  --background: var(--ion-color-light);
+  margin: 10px;
+}
+
+ion-card-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+ion-card-content {
+  text-align: center;
+}
+
+img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #ccc;
+}
