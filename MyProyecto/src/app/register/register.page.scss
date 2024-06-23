@@ -1,0 +1,35 @@
+@import '../../theme/variables.scss';
+
+ion-toolbar {
+  --background: var(--ion-color-petshop);
+  --color: var(--ion-color-secondary-shade);
+  --border-color: transparent;
+  text-align: center;
+}
+
+ion-card,
+ion-card-title,
+ion-card-subtitle,
+ion-content,
+ion-label,
+ion-item {
+  --background: var(--ion-color-petshop);
+  --border-color: transparent;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+  color: var(--ion-color-secondary);
+}
+
+ion-grid {
+  background-image: url('../../assets/images/fondo.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.register-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0 10px;
+}
