@@ -49,4 +49,8 @@ export class LoginPage implements OnInit {
     });
     await alert.present();
   }
+
+  goToRegister() {
+    this.router.navigate(['/register']);
+  }
 }
