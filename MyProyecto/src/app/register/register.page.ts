@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DbService } from '../db.service';
 
 @Component({
   selector: 'app-register',
@@ -14,9 +15,15 @@ export class RegisterPage implements OnInit {
   country: any='';
   address: any='';
 
-  constructor(private router: Router) { }
+  isDBReady: boolean = false;
+
+  constructor(private router: Router, private dbService: DbService) { }
 
   ngOnInit() {
+    this.dbService.getIsDBReady().subscribe(isReady => {
+      this.isDBReady = isReady;
+      if (isReady) { }
+    });
   }
 
   onRegister() {
