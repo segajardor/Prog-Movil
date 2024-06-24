@@ -53,4 +53,8 @@ export class DbService {
       .then(() => this.presentToast('Tabla usuarios creada exitosamente'))
       .catch(error => this.presentToast('Error al crear tabla usuarios:' + error));
   }
+
+  getIsDBReady() {
+    return this.isDBReady.asObservable();
+  }
 }
