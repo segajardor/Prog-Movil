@@ -24,6 +24,10 @@ const routes: Routes = [
         path: 'breeds',
         loadChildren: () => import('../breeds/breeds.module').then( m => m.BreedsPageModule)
       },
+      {
+        path: 'location',
+        loadChildren: () => import('../location/location.module').then( m => m.LocationPageModule)
+      },
     ]
   }
 ];
