@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { ToastController } from '@ionic/angular';
 import { DbService } from '../db.service';
 
@@ -16,7 +17,7 @@ export class RegisterPage {
   country: string = '';
   address: string = '';
 
-  constructor(private dbService: DbService, private toastController: ToastController) {}
+  constructor(private dbService: DbService, private router: Router, private toastController: ToastController) {}
 
   async register() {
     const userData = {
@@ -30,7 +31,9 @@ export class RegisterPage {
 
     try {
       await this.dbService.saveUserData(userData);
-      this.presentToast('Registro exitoso. Datos guardados localmente.');
+      this.presentToast('Registro exitoso. Datos guardados.');
+      this.router.navigate(['/login']);
+      this.clearFields();
     } catch (error) {
       this.presentToast('Error al guardar datos: ' + error);
     }
