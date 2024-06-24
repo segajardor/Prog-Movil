@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { ToastController } from '@ionic/angular';
 import { DbService } from '../db.service';
 
 @Component({
@@ -7,36 +7,40 @@ import { DbService } from '../db.service';
   templateUrl: './register.page.html',
   styleUrls: ['./register.page.scss'],
 })
-export class RegisterPage implements OnInit {
-  name: any='';
-  lastname: any='';
-  email: any='';
-  password: any='';
-  country: any='';
-  address: any='';
+export class RegisterPage {
 
-  isDBReady: boolean = false;
+  name: string = '';
+  lastname: string = '';
+  email: string = '';
+  password: string = '';
+  country: string = '';
+  address: string = '';
 
-  constructor(private router: Router, private dbService: DbService) { }
+  constructor(private dbService: DbService, private toastController: ToastController) {}
 
-  ngOnInit() {
-    this.dbService.getIsDBReady().subscribe(isReady => {
-      this.isDBReady = isReady;
-      if (isReady) { }
-    });
-  }
-
-  onRegister() {
-     console.log({
+  async register() {
+    const userData = {
       name: this.name,
       lastname: this.lastname,
       email: this.email,
       password: this.password,
       country: this.country,
-      address: this.address,
-    });
+      address: this.address
+    };
 
-    this.router.navigate(['/login']);
+    try {
+      await this.dbService.saveUserData(userData);
+      this.presentToast('Registro exitoso. Datos guardados localmente.');
+    } catch (error) {
+      this.presentToast('Error al guardar datos: ' + error);
+    }
+  }
+
+  async presentToast(message: string) {
+    const toast = await this.toastController.create({
+      message: message,
+      duration: 2000
+    });
+    toast.present();
   }
 }
-

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { SQLite, SQLiteObject } from '@awesome-cordova-plugins/sqlite/ngx';
 import { ToastController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -8,27 +8,16 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class DbService {
 
-  public db!: SQLiteObject;
+  private isDBReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
 
-  private isDBReady: BehaviorSubject<boolean> = new BehaviorSubject(false); 
+  constructor(private storage: Storage, private toastController: ToastController) {
+    this.initDatabase();
+  }
 
-  constructor(private sqlite: SQLite,private toastController: ToastController) {
-
-    this.initDatabase();  
-   }
-  
-   private initDatabase() {
-    this.sqlite.create({
-      name: 'registro.db',
-      location: 'default'
-    }).then((db: SQLiteObject) => {      
-      this.isDBReady.next(true); 
-      this.db = db;
-      this.createTables();
-      this.isDBReady.next(true);
-      this.presentToast('Base de datos y tabla creadas con éxito'); 
-
-    }).catch(error => this.presentToast('Error al insertar usuario:'+ error));
+  private async initDatabase() {
+    this.storage = await this.storage.create();
+    this.isDBReady.next(true);
+    this.presentToast('Base de datos inicializada con éxito');
   }
 
   private async presentToast(message: string) {
@@ -39,19 +28,20 @@ export class DbService {
     toast.present();
   }
 
-  private createTables() {
-    this.db.executeSql(
-      `CREATE TABLE IF NOT EXISTS usuarios (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT,
-        lastname TEXT,
-        email TEXT UNIQUE,
-        password TEXT,
-        country TEXT,
-        address TEXT
-      )`, [])
-      .then(() => this.presentToast('Tabla usuarios creada exitosamente'))
-      .catch(error => this.presentToast('Error al crear tabla usuarios:' + error));
+  async saveUserData(data: any) {
+    await this.storage.set('userData', data);
+    this.presentToast('Datos de usuario guardados correctamente');
+  }
+
+  async getUserData() {
+    const data = await this.storage.get('userData');
+    if (data) {
+      this.presentToast('Datos de usuario obtenidos');
+      return data;
+    } else {
+      this.presentToast('No se encontraron datos de usuario');
+      return null;
+    }
   }
 
   getIsDBReady() {
