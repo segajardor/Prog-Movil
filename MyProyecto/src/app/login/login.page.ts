@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
+import { DbService } from '../db.service';
 
 @Component({
   selector: 'app-login',
@@ -9,35 +10,34 @@ import { AlertController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  username: string='';
-  password: string='';
-  name: string='Sebastián';
-  lastname: string='Gajardo';
-  email: string='se.gajardor@duocuc.cl';
-  country: string='Chile';
-  address: string='Quilpué';
+  username: string = '';
+  password: string = '';
 
-  constructor(private router: Router,
-              private alertController: AlertController) { }
+  constructor(
+    private router: Router,
+    private alertController: AlertController,
+    private dbService: DbService
+  ) { }
 
   ngOnInit() {
   }
 
-  onLogin() {
-    if (this.username.trim() == 'seba' && this.password.trim() == '123456') {
-      let NavigationExtras: NavigationExtras = {
-        state: {
-          usernameEnviado: this.username,
-          nameEnviado: this.name,
-          lastnameEnviado: this.lastname,
-          emailEnviado: this.email,
-          countryEnviado: this.country,
-          addressEnviado: this.address
-        }
+  async onLogin() {
+    try {
+      const storedUserData = await this.dbService.getUserData();
+      if (storedUserData && storedUserData.username === this.username.trim() && storedUserData.password === this.password.trim()) {
+        let navigationExtras: NavigationExtras = {
+          state: {
+            usernameEnviado: storedUserData.username
+          }
+        };
+        this.router.navigate(['/tabs/profile'], navigationExtras);
+      } else {
+        this.presentAlert('Credenciales incorrectas');
       }
-      this.router.navigate(['/tabs/profile'], NavigationExtras);
-    } else {
-      this.presentAlert('Credenciales incorrectas')
+    } catch (error) {
+      console.error('Error al autenticar usuario:', error);
+      this.presentAlert('Error al autenticar usuario');
     }
   }
 
