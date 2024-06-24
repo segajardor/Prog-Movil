@@ -31,7 +31,8 @@ export class LoginPage implements OnInit {
             usernameEnviado: storedUserData.username
           }
         };
-        this.router.navigate(['/tabs/profile'], navigationExtras);
+        this.router.navigate(['/tabs/home'], navigationExtras);
+        this.clearFields();
       } else {
         this.presentAlert('Credenciales incorrectas');
       }
@@ -52,5 +53,10 @@ export class LoginPage implements OnInit {
 
   goToRegister() {
     this.router.navigate(['/register']);
+  }
+
+  clearFields() {
+    this.username = '';
+    this.password = '';
   }
 }
