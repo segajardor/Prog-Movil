@@ -10,6 +10,7 @@ import { DbService } from '../db.service';
 })
 export class RegisterPage {
 
+  username: string = '';
   name: string = '';
   lastname: string = '';
   email: string = '';
@@ -21,6 +22,7 @@ export class RegisterPage {
 
   async register() {
     const userData = {
+      username: this.username,
       name: this.name,
       lastname: this.lastname,
       email: this.email,
@@ -48,6 +50,7 @@ export class RegisterPage {
   }
 
   clearFields() {
+    this.username = '';
     this.name = '';
     this.lastname = '';
     this.email = '';
