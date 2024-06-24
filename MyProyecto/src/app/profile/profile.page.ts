@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { DbService } from '../db.service';
 
 @Component({
   selector: 'app-profile',
@@ -8,30 +8,25 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class ProfilePage implements OnInit {
 
-  usernameRecibido: string='';
-  nameRecibido: string='';
-  lastnameRecibido: string='';
-  emailRecibido: string='';
-  countryRecibido: string='';
-  addressRecibido: string='';
+  userData: any = {};
 
-  constructor(private router: Router,
-              private activateroute: ActivatedRoute) {
-                this.activateroute.queryParams.subscribe(params => {
-                  
-                  if (this.router.getCurrentNavigation()?.extras?.state) {
-
-                    this.usernameRecibido = this.router.getCurrentNavigation()?.extras?.state?.['usernameEnviado'];
-                    this.nameRecibido = this.router.getCurrentNavigation()?.extras?.state?.['nameEnviado'];
-                    this.lastnameRecibido = this.router.getCurrentNavigation()?.extras?.state?.['lastnameEnviado'];
-                    this.emailRecibido = this.router.getCurrentNavigation()?.extras?.state?.['emailEnviado'];
-                    this.countryRecibido = this.router.getCurrentNavigation()?.extras?.state?.['countryEnviado'];
-                    this.addressRecibido = this.router.getCurrentNavigation()?.extras?.state?.['addressEnviado'];
-                  }
-                })
-}
+  constructor(private dbService: DbService) {}
 
   ngOnInit() {
+    this.loadUserData();
+  }
+
+  async loadUserData() {
+    try {
+      const storedUserData = await this.dbService.getUserData();
+      if (storedUserData) {
+        this.userData = storedUserData;
+      } else {
+        console.log('No se encontraron datos de usuario.');
+      }
+    } catch (error) {
+      console.error('Error al cargar datos de usuario:', error);
+    }
   }
 
 }
