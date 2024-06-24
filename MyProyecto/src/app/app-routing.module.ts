@@ -23,11 +23,11 @@ const routes: Routes = [
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
   },
-  {
+  /*{
     path: 'location',
     loadChildren: () => import('./location/location.module').then( m => m.LocationPageModule)
-  },
-  /*{
+  },/
+  {
     path: 'breeds',
     loadChildren: () => import('./breeds/breeds.module').then( m => m.BreedsPageModule)
   },
