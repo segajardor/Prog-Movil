@@ -43,4 +43,13 @@ export class RegisterPage {
     });
     toast.present();
   }
+
+  clearFields() {
+    this.name = '';
+    this.lastname = '';
+    this.email = '';
+    this.password = '';
+    this.country = '';
+    this.address = '';
+  }
 }
