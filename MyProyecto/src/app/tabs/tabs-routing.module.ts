@@ -28,6 +28,11 @@ const routes: Routes = [
         path: 'location',
         loadChildren: () => import('../location/location.module').then( m => m.LocationPageModule)
       },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      }
     ]
   }
 ];
